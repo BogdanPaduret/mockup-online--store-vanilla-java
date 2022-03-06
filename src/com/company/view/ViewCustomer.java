@@ -82,6 +82,8 @@ public class ViewCustomer {
         choice = -1;
 
         while (running) {
+            System.out.println("Esti inregistrat ca: " + customer.getFullName());
+
             menu();
             System.out.println("");
 

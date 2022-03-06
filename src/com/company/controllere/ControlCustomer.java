@@ -68,11 +68,9 @@ public class ControlCustomer {
         }
         return null;
     }
-
     public Customer getCustomer(String email, String name) {
         for (Customer customer : customers) {
             if (customer.getEmail().toLowerCase().equals(email.toLowerCase()) && customer.getFullName().toLowerCase().equals(name.toLowerCase())) {
-
                 return customer;
             }
         }

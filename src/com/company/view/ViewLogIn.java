@@ -3,6 +3,7 @@ package com.company.view;
 import com.company.controllere.*;
 import com.company.modele.*;
 
+import javax.swing.text.View;
 import java.util.Scanner;
 
 public class ViewLogIn {
@@ -27,7 +28,7 @@ public class ViewLogIn {
         controlCustomer = new ControlCustomer(customersPath);
         controlOrder = new ControlOrder(ordersPath);
 
-//        customer = new Customer("1/Mail 1/PWD 1/FirstName LastName");
+        customer = null;
 
         scanner = new Scanner(System.in);
     }
@@ -103,7 +104,7 @@ public class ViewLogIn {
     }
 
     private void login() {
-        System.out.println("Introduceti numele intreg, adresa de email si apoi parola (despartite prin virgula)");
+        System.out.println("Introduceti NUMELE intreg, adresa de EMAIL si apoi PAROLA (despartite prin virgula)");
         String[] input = scanner.nextLine().split(",");
 
         String fullName = input[0];
@@ -113,12 +114,14 @@ public class ViewLogIn {
         if (controlCustomer.existsCustomer(email, fullName)) {
             customer = controlCustomer.getCustomer(email, fullName);
             if (customer.getPassword().equals(pwd)) {
-//                ViewCustomer(customer);
+                ViewCustomer viewCustomer = new ViewCustomer(customer);
+                viewCustomer.play();
             } else {
-
+                System.out.println("Parola invalida");
+                customer = null;
             }
+        } else {
+            System.out.println("Numele sau adresa de email gresite");
         }
     }
-
-asdsadasdasdas
 }
