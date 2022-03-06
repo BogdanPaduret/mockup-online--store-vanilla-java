@@ -113,7 +113,7 @@ public class ViewLogIn {
         if (controlCustomer.existsCustomer(email, fullName)) {
             customer = controlCustomer.getCustomer(email, fullName);
             if (customer.getPassword().equals(pwd)) {
-                ViewCustomer(customer);
+//                ViewCustomer(customer);
             } else {
 
             }

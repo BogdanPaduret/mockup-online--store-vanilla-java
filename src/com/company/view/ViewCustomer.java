@@ -28,7 +28,7 @@ public class ViewCustomer {
 
 
     //constructor
-    public ViewCustomer() {
+    public ViewCustomer(Customer customer) {
         scanner = new Scanner(System.in);
 
         String pathRoot = "src/com/company/resources/";
@@ -40,11 +40,15 @@ public class ViewCustomer {
         controlProduct = new ControlProduct(productsPath);
         controlOrderDetails = new ControlOrderDetails(orderDetailsPath);
 
-        customer = new Customer(1, "Mail 1", "pwd 1", "Nume Prenume");
+        this.customer = customer;
 
         order= new Order(controlOrder.newOrderId(),customer.getId(),0);
 
         controlOrder.addOrder(order);
+    }
+
+    public ViewCustomer() {
+        this(new Customer(1, "Mail 1", "pwd 1", "Nume Prenume"));
     }
 
 
