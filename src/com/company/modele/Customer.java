@@ -8,14 +8,19 @@ public class Customer {
     private String password;
     private String fullName;
 
+    private boolean isAdmin;
+
     private String separator = "/";
 
+
+
     //constructori
-    public Customer(int id, String email, String password, String fullName) {
+    public Customer(int id, String email, String password, String fullName, boolean isAdmin) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.fullName = fullName;
+        this.isAdmin = isAdmin;
     }
     public Customer(String input) {
         String[] param = input.split(separator);
@@ -23,6 +28,10 @@ public class Customer {
         this.email = param[1];
         this.password = param[2];
         this.fullName = param[3];
+        this.isAdmin = Boolean.parseBoolean(param[4]);
+    }
+    public Customer(int id, String email, String password, String fullName) {
+        this(id, email, password, fullName, false);
     }
 
     //get
@@ -38,6 +47,9 @@ public class Customer {
     public String getFullName() {
         return fullName;
     }
+    public boolean isAdmin() {
+        return isAdmin;
+    }
 
     //set
     public void setId(int id) {
@@ -52,6 +64,9 @@ public class Customer {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+    public void setAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
     //show
     public String show() {
@@ -61,12 +76,15 @@ public class Customer {
         text += "Email: " + this.email + "\n";
         text += "Name: " + this.fullName;
 
+        if (this.isAdmin == true) {
+            text += "\nAdministrator";
+        }
+
         return text;
     }
 
     //save
     public String saveInfo() {
-        return this.id + separator + this.email + separator + this.password + separator + this.fullName;
+        return this.id + separator + this.email + separator + this.password + separator + this.fullName + separator + this.isAdmin;
     }
-
 }

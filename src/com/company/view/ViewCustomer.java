@@ -1,12 +1,7 @@
 package com.company.view;
 
-import com.company.controllere.ControlOrder;
-import com.company.controllere.ControlOrderDetails;
-import com.company.controllere.ControlProduct;
-import com.company.modele.Customer;
-import com.company.modele.Order;
-import com.company.modele.OrderDetails;
-import com.company.modele.Product;
+import com.company.controllere.*;
+import com.company.modele.*;
 
 import java.util.Scanner;
 
@@ -48,7 +43,7 @@ public class ViewCustomer {
     }
 
     public ViewCustomer() {
-        this(new Customer(1, "Mail 1", "pwd 1", "Nume Prenume"));
+        this(new Customer(99, "Mail 1", "pwd 1", "Nume Prenume"));
     }
 
 

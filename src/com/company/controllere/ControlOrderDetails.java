@@ -30,6 +30,7 @@ public class ControlOrderDetails {
     public void addOrderDetails(OrderDetails orderDetails) {
         orderDetailsList.add(orderDetails);
     }
+
     public int newOrderDetailsId() {
         if (orderDetailsList.size() == 0) {
             return 0;
@@ -56,11 +57,13 @@ public class ControlOrderDetails {
             e.printStackTrace();
         }
     }
+
     public void showAllOrderDetails() {
         for (OrderDetails orderDetails : orderDetailsList) {
             System.out.println(orderDetails.show() + "\n");
         }
     }
+
     public OrderDetails getOrderDetails(int id) {
         for (OrderDetails orderDetails : orderDetailsList) {
             if (orderDetails.getId() == id) {
@@ -69,6 +72,7 @@ public class ControlOrderDetails {
         }
         return null;
     }
+
     public int size() {
         int c = 0;
         for (OrderDetails orderDetails : orderDetailsList) {
@@ -76,6 +80,7 @@ public class ControlOrderDetails {
         }
         return c;
     }
+
     public boolean exists(int id) {
         for (OrderDetails orderDetails : orderDetailsList) {
             if (orderDetails.getId() == id) {
@@ -84,6 +89,7 @@ public class ControlOrderDetails {
         }
         return false;
     }
+
     public double getTotal(int orderId) {
         double total = 0;
         for (OrderDetails details : getOrderDetailsList(orderId)) {
@@ -91,6 +97,7 @@ public class ControlOrderDetails {
         }
         return total;
     }
+
     public ArrayList<OrderDetails> getOrderDetailsList(int orderId) {
         ArrayList<OrderDetails> basket = new ArrayList<>();
         for (OrderDetails details : orderDetailsList) {
@@ -99,6 +106,14 @@ public class ControlOrderDetails {
             }
         }
         return basket;
+    }
+
+    public int mostProduct() {
+        return -1;
+    }
+
+    public int[] topProducts(int size) {
+        return new int[]{-1};
     }
 
 
@@ -110,6 +125,7 @@ public class ControlOrderDetails {
             }
         }
     }
+
     public void updateProductId(int id, int productId) {
         for (OrderDetails orderDetails : orderDetailsList) {
             if (orderDetails.getId() == id) {
@@ -117,6 +133,7 @@ public class ControlOrderDetails {
             }
         }
     }
+
     public void updatePrice(int id, double price) {
         for (OrderDetails orderDetails : orderDetailsList) {
             if (orderDetails.getId() == id) {
@@ -124,6 +141,7 @@ public class ControlOrderDetails {
             }
         }
     }
+
     public void updateQuantity(int id, double qty) {
         for (OrderDetails orderDetails : orderDetailsList) {
             if (orderDetails.getId() == id) {
@@ -137,6 +155,7 @@ public class ControlOrderDetails {
     public void deleteOrderDetails(OrderDetails orderDetails) {
         this.orderDetailsList.remove(orderDetails);
     }
+
     public void deleteOrderDetails(int id) {
         for (OrderDetails details : orderDetailsList) {
             if (details.getId() == id) {
@@ -144,9 +163,11 @@ public class ControlOrderDetails {
             }
         }
     }
+
     public void clearSession() {
         this.orderDetailsList.clear();
     }
+
     public void deleteAll() {
         clearSession();
         save();
@@ -172,6 +193,7 @@ public class ControlOrderDetails {
             e.printStackTrace();
         }
     }
+
     public String toSave() {
         String text = "";
         for (OrderDetails orderDetails : orderDetailsList) {

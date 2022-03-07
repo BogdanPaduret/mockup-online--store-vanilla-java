@@ -1,6 +1,5 @@
 package com.company.controllere;
 
-import com.company.modele.Customer;
 import com.company.modele.Order;
 
 import java.io.File;
@@ -91,6 +90,55 @@ public class ControlOrder {
         for (Order order : orders) {
             if (order.getCustomerId() == customerId && order.getAmount() == amount) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+//    public int mostCustomer() {
+//
+//        for (Order order : orders) {
+//
+//        }
+//    }
+
+    public int topCustomers(int size) {
+        return -1;
+    }
+
+    public int[] customers() {
+        int[] list = new int[0];
+        for (Order order : orders) {
+            int id = order.getCustomerId();
+            if (existsInt(list, id) == false) {
+                list = addToIntList(list, id);
+            }
+        }
+        return list;
+    }
+
+    private int[] addToIntList(int[] list, int add) {
+        int[] newList;
+
+        if (list.length == 0) {
+            newList = new int[]{add};
+        } else {
+            int size = list.length + 1;
+            newList = new int[size];
+            for (int i = 0; i < newList.length - 1; i++) {
+                newList[i] = list[i];
+            }
+            newList[size-1] = add;
+        }
+        return newList;
+    }
+
+    private boolean existsInt(int[] list, int n) {
+        if (list.length > 0) {
+            for (int i = 0; i < list.length; i++) {
+                if (list[i] == n) {
+                    return true;
+                }
             }
         }
         return false;
