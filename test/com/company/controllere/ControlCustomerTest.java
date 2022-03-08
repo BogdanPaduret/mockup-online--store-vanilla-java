@@ -26,9 +26,9 @@ class ControlCustomerTest {
 
     @Test
     public void addTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
         assertEquals(4,controlCustomer.newCustomerId());
 
@@ -42,9 +42,9 @@ class ControlCustomerTest {
 
     @Test
     public void getCustomerTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
@@ -56,9 +56,9 @@ class ControlCustomerTest {
 
     @Test
     public void getIdTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
@@ -69,9 +69,9 @@ class ControlCustomerTest {
 
     @Test
     public void getEmailTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         String[] email = {"Mail 1", "Mail 2", "Mail 3"};
@@ -83,9 +83,9 @@ class ControlCustomerTest {
 
     @Test
     public void getPasswordTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false/false"));
         assertEquals(3,controlCustomer.size());
 
         String[] pwd = {"123", "234", "345"};
@@ -97,9 +97,9 @@ class ControlCustomerTest {
 
     @Test
     public void getNameTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         String[] name = {"Nume 1", "Nume 2", "Nume 3"};
@@ -111,9 +111,9 @@ class ControlCustomerTest {
 
     @Test
     public void deleteTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
@@ -131,9 +131,9 @@ class ControlCustomerTest {
         controlCustomer.load();
         assertEquals(0, controlCustomer.size());
 
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         controlCustomer.save();
@@ -153,9 +153,9 @@ class ControlCustomerTest {
 
     @Test
     public void clearSessionTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         controlCustomer.clearSession();
@@ -164,9 +164,9 @@ class ControlCustomerTest {
 
     @Test
     public void loadTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         controlCustomer.save();
@@ -180,17 +180,17 @@ class ControlCustomerTest {
 
     @Test
     public void showTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/Parola 1/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/Parola 2/Nume 2"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/Parola 1/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/Parola 2/Nume 2/false"));
         controlCustomer.showCustomers();
     }
 
     @Test
     public void updateTest() {
-        controlCustomer.addCustomer(new Customer("1/mail 1/pwd 1/name 1"));
-        controlCustomer.addCustomer(new Customer("2/mail 2/pwd 2/name 2"));
-        controlCustomer.addCustomer(new Customer("3/mail 3/pwd 3/name 3"));
-        controlCustomer.addCustomer(new Customer("4/mail 4/pwd 4/name 4"));
+        controlCustomer.addCustomer(new Customer("1/mail 1/pwd 1/name 1/false"));
+        controlCustomer.addCustomer(new Customer("2/mail 2/pwd 2/name 2/false"));
+        controlCustomer.addCustomer(new Customer("3/mail 3/pwd 3/name 3/false"));
+        controlCustomer.addCustomer(new Customer("4/mail 4/pwd 4/name 4/false"));
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
 
@@ -208,9 +208,9 @@ class ControlCustomerTest {
 
     @Test
     public void existsTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3"));
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
         assertEquals(3,controlCustomer.size());
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;

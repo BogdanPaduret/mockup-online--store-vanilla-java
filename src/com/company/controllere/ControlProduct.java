@@ -85,7 +85,7 @@ public class ControlProduct {
         }
         return c;
     }
-    public boolean exits(int id) {
+    public boolean exists(int id) {
         for (Product product : products) {
             if (product.getId() == id) {
                 return true;

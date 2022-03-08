@@ -32,11 +32,29 @@ class CustomerTest {
     }
     @Test
     public void customerStringTest() {
-        Customer customer = new Customer("1/Email/pwd/Firstname Lastname");
+        Customer customer = new Customer("1/Email/pwd/Firstname Lastname/false");
         assertEquals(1, customer.getId());
         assertEquals("Email", customer.getEmail());
         assertEquals("pwd", customer.getPassword());
         assertEquals("Firstname Lastname", customer.getFullName());
+        assertFalse(customer.isAdmin());
+    }
+
+    @Test
+    public void customerVarAdminTest() {
+        Customer customer;
+        customer = new Customer(1, "Email1", "pwd1", "Firstname1 Lastname1", true);
+        assertEquals(1, customer.getId());
+        assertEquals("Email1", customer.getEmail());
+        assertEquals("pwd1", customer.getPassword());
+        assertEquals("Firstname1 Lastname1", customer.getFullName());
+        assertTrue(customer.isAdmin());
+        customer = new Customer(2, "Email2", "pwd2", "Firstname2 Lastname2", false);
+        assertEquals(2, customer.getId());
+        assertEquals("Email2", customer.getEmail());
+        assertEquals("pwd2", customer.getPassword());
+        assertEquals("Firstname2 Lastname2", customer.getFullName());
+        assertFalse(customer.isAdmin());
     }
 
 
@@ -60,6 +78,19 @@ class CustomerTest {
     public void getFullnameTest() {
         Customer customer = new Customer(1, "Email", "pwd", "Firstname Lastname");
         assertEquals("Firstname Lastname", customer.getFullName());
+    }
+    @Test
+    public void isAdminTest() {
+        Customer customer1 = new Customer(1, "Email", "pwd", "Firstname Lastname");
+        Customer customer2 = new Customer(2, "Email 2", "pwd 2", "Firstname2 Lastname2", true);
+        Customer customer3 = new Customer(3, "Email 3", "pwd 3", "Firstname3 Lastname3", false);
+        Customer customer4 = new Customer("4/Email4/pwd4/Firstname4 Lastname4/true");
+        Customer customer5 = new Customer("5/Email5/pwd5/Firstname 5 Lastname5/false");
+        assertFalse(customer1.isAdmin());
+        assertTrue(customer2.isAdmin());
+        assertFalse(customer3.isAdmin());
+        assertTrue(customer4.isAdmin());
+        assertFalse(customer5.isAdmin());
     }
 
 
@@ -89,6 +120,14 @@ class CustomerTest {
         assertEquals("New name", customer.getFullName());
     }
 
+    @Test
+    public void setAdminTest() {
+        Customer customer = new Customer("1/Email/pwd/Firstname Lastname/false");
+        assertFalse(customer.isAdmin());
+        customer.setAdmin(true);
+        assertTrue(customer.isAdmin());
+    }
+
 
     //show test
     @Test
@@ -103,7 +142,7 @@ class CustomerTest {
     @Test
     public void saveInfoTest() {
         Customer customer = new Customer(1, "Email", "pwd", "Firstname Lastname");
-        String text = "1/Email/pwd/Firstname Lastname";
+        String text = "1/Email/pwd/Firstname Lastname/false";
         assertEquals(text,customer.saveInfo());
     }
 }
