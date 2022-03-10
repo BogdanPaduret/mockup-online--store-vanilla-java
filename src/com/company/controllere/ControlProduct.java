@@ -131,6 +131,9 @@ public class ControlProduct {
     public void deleteProduct(Product product) {
         products.remove(product);
     }
+    public void deleteProduct(int id) {
+        products.remove(this.getProduct(id));
+    }
     public void clearSession() {
         products.clear();
     }

@@ -12,8 +12,8 @@ public class Main {
         ViewLogIn viewLogIn = new ViewLogIn();
 
 //        viewCustomer.play();
-//        viewLogIn.play();
-        ciorna();
+        viewLogIn.play();
+//        ciorna();
     }
 
     public static void ciorna() {
