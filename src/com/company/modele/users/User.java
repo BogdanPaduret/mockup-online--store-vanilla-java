@@ -134,11 +134,18 @@ public abstract class User {
         return string;
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        User user = (User) o;
+//        return id == user.id && Objects.equals(type, user.type) && Objects.equals(fullName, user.fullName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         User user = (User) o;
-        return id == user.id && Objects.equals(type, user.type) && Objects.equals(fullName, user.fullName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return Objects.equals(type, user.type) && Objects.equals(fullName, user.fullName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     public String saveInfo() {

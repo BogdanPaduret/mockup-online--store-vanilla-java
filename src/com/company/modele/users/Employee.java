@@ -1,6 +1,6 @@
 package com.company.modele.users;
 
-public abstract class Employee extends User {
+public class Employee extends User {
 
     //instance variables
     private double income;
