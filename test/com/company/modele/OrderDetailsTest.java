@@ -102,7 +102,7 @@ class OrderDetailsTest {
     }
 
 
-    //show
+    //toString
     @Test
     public void showTest() {
         OrderDetails orderDetails = new OrderDetails(1, 2, 3, 45.6, 78.9);

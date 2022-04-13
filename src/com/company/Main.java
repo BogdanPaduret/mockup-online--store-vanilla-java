@@ -1,33 +1,23 @@
 package com.company;
 
-import com.company.controllere.ControlOrder;
-import com.company.view.ViewCustomer;
-import com.company.view.ViewLogIn;
+import com.company.modele.users.Admin;
+import com.company.modele.users.Customer;
+import com.company.modele.users.User;
 
 public class Main {
 
     public static void main(String[] args) {
+//        ViewCustomer viewCustomer= new ViewCustomer();
+//        ViewLogIn viewLogIn = new ViewLogIn();
+//
+////        viewCustomer.play();
+//        viewLogIn.play();
 
-        ViewCustomer viewCustomer= new ViewCustomer();
-        ViewLogIn viewLogIn = new ViewLogIn();
+        Admin user = new Admin("1/Costel Costel/mail/123asd/ceva ceva");
+//        String[] strings = user.stringResidue.split(User.SAVE_SEPARATOR);
+//        for (int i = 0; i < strings.length; i++) {
+//            System.out.println("Elementul " + i + ": " + strings[i]);
+//        }
 
-//        viewCustomer.play();
-        viewLogIn.play();
-//        ciorna();
-    }
-
-    public static void ciorna() {
-        ControlOrder controlOrder = new ControlOrder("src/com/company/resources/orders");
-        int[] a = controlOrder.customers();
-        System.out.println(a.length);
-        printList(a);
-    }
-
-    public static void printList(int[] arr) {
-        String text = "";
-        for (int i = 0; i < arr.length; i++) {
-            text += arr[i] + " ";
-        }
-        System.out.println(text);
     }
 }

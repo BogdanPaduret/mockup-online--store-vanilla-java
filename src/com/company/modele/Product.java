@@ -54,7 +54,7 @@ public class Product {
         this.stock = stock;
     }
 
-    //show
+    //toString
     public String show() {
         String text = "";
 

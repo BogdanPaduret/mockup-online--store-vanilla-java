@@ -2,7 +2,7 @@ package com.company.view;
 
 import com.company.controllere.*;
 import com.company.modele.*;
-import com.sun.source.tree.PackageTree;
+import com.company.modele.users.Customer;
 
 import java.util.Scanner;
 
@@ -41,7 +41,7 @@ public class ViewAdmin {
         scanner = new Scanner(System.in);
     }
     public ViewAdmin() {
-        this(new Customer(99, "mail 1", "123", "Firstname Lastname", true));
+        this(new Customer(99, "mail 1", "123", "Firstname Lastname"));
 
     }
 
@@ -139,7 +139,7 @@ public class ViewAdmin {
         String pwd = input[2];
         boolean admin = Boolean.parseBoolean(input[3]);
 
-        controlCustomer.addCustomer(new Customer(controlCustomer.newCustomerId(), email, pwd, fullName, admin));
+        controlCustomer.addCustomer(new Customer(controlCustomer.newCustomerId(), email, pwd, fullName));
         System.out.println("Clientul a fost adaugat");
     }
     private void removeCustomer() {

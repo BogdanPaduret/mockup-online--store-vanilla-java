@@ -1,6 +1,6 @@
 package com.company.controllere;
 
-import com.company.modele.Customer;
+import com.company.modele.users.Customer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,9 +20,11 @@ public class ControlCustomer {
     //constructori
     public ControlCustomer(String path) {
         this.path = path;
-        this.separator = "/";
         this.customers = new ArrayList<>();
         load();
+    }
+    public ControlCustomer() {
+        this("test/com/company/resources/customers");
     }
 
     //create
@@ -57,7 +59,7 @@ public class ControlCustomer {
     }
     public void showCustomers() {
         for (Customer customer : customers) {
-            System.out.println(customer.show() + "\n");
+            System.out.println(customer.toString() + "\n");
         }
     }
     public Customer getCustomer(int id) {

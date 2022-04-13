@@ -102,7 +102,7 @@ class ProductTest {
     }
 
 
-    //show
+    //toString
     @Test
     public void showTest() {
         Product product = new Product(1, "Name", 123.4, 567.8);

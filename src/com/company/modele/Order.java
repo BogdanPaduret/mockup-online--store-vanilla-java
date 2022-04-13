@@ -47,7 +47,7 @@ public class Order {
         this.amount = amount;
     }
 
-    //show
+    //toString
     public String showInfo() {
         String text = "";
 

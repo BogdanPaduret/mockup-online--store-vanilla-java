@@ -63,7 +63,7 @@ public class OrderDetails {
         this.qty = qty;
     }
 
-    //show
+    //toString
     public String show() {
         String text = "";
 

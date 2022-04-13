@@ -31,7 +31,7 @@ class ControlProductTest {
     @Test
     public void constructorTest() {
         System.out.println("\n+++ constructor test +++");
-    }
+    } //nu stiu ce as putea testa aici avand in vedere ca constructorul e folosit si la initializare
 
 
     //save + load
@@ -78,7 +78,7 @@ class ControlProductTest {
     }
     @Test
     public void saveLoadTest() {
-        System.out.println("\n+++ load test +++");
+        System.out.println("\n+++ save and load test +++");
         System.out.println("--- creating products [");
         controlProduct.addProduct(new Product("1/mere/12.3/456.7"));
         controlProduct.addProduct(new Product("2/struguri/89.0/123.4"));
@@ -152,7 +152,7 @@ class ControlProductTest {
     //read
     @Test
     public void showAllTest() {
-        System.out.println("\n+++ show all products test +++");
+        System.out.println("\n+++ toString all products test +++");
         System.out.println("--- creating products [");
         controlProduct.addProduct(new Product("1/mere/12.3/456.7"));
         controlProduct.addProduct(new Product("2/struguri/89.0/123.4"));

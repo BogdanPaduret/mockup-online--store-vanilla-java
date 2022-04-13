@@ -1,11 +1,9 @@
 package com.company.controllere;
 
-import com.company.modele.Customer;
+import com.company.modele.users.Customer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.plaf.SpinnerUI;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,108 +22,16 @@ class ControlCustomerTest {
         controlCustomer.deleteAll();
     }
 
+
+    //constructor
     @Test
-    public void addTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-        assertEquals(4,controlCustomer.newCustomerId());
+    public void constructorTest() {
+        //nu stiu ce altceva ar trebui sa testez aici avand in vedere
+        //ca constructorul e folosit si la initializare
+    } //nu stiu ce as putea testa aici avand in vedere ca constructorul e folosit si la initializare
 
-        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
 
-        assertTrue(controlCustomer.existsCustomer(id));
-        assertFalse(controlCustomer.existsCustomer(id+ controlCustomer.size()));
-        assertTrue(controlCustomer.existsCustomer("Mail 2", "Nume 2"));
-        assertFalse(controlCustomer.existsCustomer("Mail 88","Nume 88"));
-    }
-
-    @Test
-    public void getCustomerTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
-
-        Customer customer = controlCustomer.getCustomer(id);
-
-        assertEquals(id, customer.getId());
-    }
-
-    @Test
-    public void getIdTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
-        assertTrue(id <= 3);
-
-        assertEquals(id, controlCustomer.getCustomer(id).getId());
-    }
-
-    @Test
-    public void getEmailTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        String[] email = {"Mail 1", "Mail 2", "Mail 3"};
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size());
-
-        assertEquals(email[id], controlCustomer.getCustomer(id+1).getEmail());
-    }
-
-    @Test
-    public void getPasswordTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false/false"));
-        assertEquals(3,controlCustomer.size());
-
-        String[] pwd = {"123", "234", "345"};
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size());
-
-        assertEquals(pwd[id], controlCustomer.getCustomer(id + 1).getPassword());
-    }
-
-    @Test
-    public void getNameTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        String[] name = {"Nume 1", "Nume 2", "Nume 3"};
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size());
-
-        assertEquals(name[id], controlCustomer.getCustomer(id + 1).getFullName());
-    }
-
-    @Test
-    public void deleteTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
-
-        assertNotEquals(null, controlCustomer.getCustomer(id));
-
-        controlCustomer.deleteCustomer(controlCustomer.getCustomer(id));
-
-        assertEquals(null, controlCustomer.getCustomer(id));
-        assertEquals(2, controlCustomer.size());
-    }
-
+    //save+load
     @Test
     public void saveTest() {
         controlCustomer.load();
@@ -150,18 +56,6 @@ class ControlCustomerTest {
         controlCustomer.load();
         assertEquals(0, controlCustomer.size());
     }
-
-    @Test
-    public void clearSessionTest() {
-        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
-        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
-        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
-        assertEquals(3,controlCustomer.size());
-
-        controlCustomer.clearSession();
-        assertEquals(0,controlCustomer.size());
-    }
-
     @Test
     public void loadTest() {
         controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
@@ -178,13 +72,110 @@ class ControlCustomerTest {
         assertEquals(3, controlCustomer.size());
     }
 
+
+    //create
+    @Test
+    public void addTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+        assertEquals(4,controlCustomer.newCustomerId());
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
+
+        assertTrue(controlCustomer.existsCustomer(id));
+        assertFalse(controlCustomer.existsCustomer(id+ controlCustomer.size()));
+        assertTrue(controlCustomer.existsCustomer("Mail 2", "Nume 2"));
+        assertFalse(controlCustomer.existsCustomer("Mail 88","Nume 88"));
+    }
+
+
+    //read
     @Test
     public void showTest() {
         controlCustomer.addCustomer(new Customer("1/Mail 1/Parola 1/Nume 1/false"));
         controlCustomer.addCustomer(new Customer("2/Mail 2/Parola 2/Nume 2/false"));
         controlCustomer.showCustomers();
+    } //doar imi afiseaza, nu stiu cum pot verifica avand in vedere ca nu are nici un return...
+    @Test
+    public void getCustomerTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
+
+        Customer customer = controlCustomer.getCustomer(id);
+
+        assertEquals(id, customer.getId());
+    }
+    @Test
+    public void getIdTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
+        assertTrue(id <= 3);
+
+        assertEquals(id, controlCustomer.getCustomer(id).getId());
+    }
+    @Test
+    public void getEmailTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        String[] email = {"Mail 1", "Mail 2", "Mail 3"};
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size());
+
+        assertEquals(email[id], controlCustomer.getCustomer(id+1).getEmail());
+    }
+    @Test
+    public void getPasswordTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false/false"));
+        assertEquals(3,controlCustomer.size());
+
+        String[] pwd = {"123", "234", "345"};
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size());
+
+        assertEquals(pwd[id], controlCustomer.getCustomer(id + 1).getPassword());
+    }
+    @Test
+    public void getNameTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        String[] name = {"Nume 1", "Nume 2", "Nume 3"};
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size());
+
+        assertEquals(name[id], controlCustomer.getCustomer(id + 1).getFullName());
+    }
+    @Test
+    public void existsTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
+
+        assertTrue(controlCustomer.existsCustomer(id));
     }
 
+
+    //update
     @Test
     public void updateTest() {
         controlCustomer.addCustomer(new Customer("1/mail 1/pwd 1/name 1/false"));
@@ -206,8 +197,10 @@ class ControlCustomerTest {
         assertEquals(newName[id - 1], controlCustomer.getCustomer(id).getFullName());
     }
 
+
+    //delete
     @Test
-    public void existsTest() {
+    public void deleteTest() {
         controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
         controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
         controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
@@ -215,7 +208,22 @@ class ControlCustomerTest {
 
         int id = (int) Math.floor(Math.random() * controlCustomer.size()) + 1;
 
-        assertTrue(controlCustomer.existsCustomer(id));
+        assertNotEquals(null, controlCustomer.getCustomer(id));
+
+        controlCustomer.deleteCustomer(controlCustomer.getCustomer(id));
+
+        assertEquals(null, controlCustomer.getCustomer(id));
+        assertEquals(2, controlCustomer.size());
+    }
+    @Test
+    public void clearSessionTest() {
+        controlCustomer.addCustomer(new Customer("1/Mail 1/123/Nume 1/false"));
+        controlCustomer.addCustomer(new Customer("2/Mail 2/234/Nume 2/false"));
+        controlCustomer.addCustomer(new Customer("3/Mail 3/345/Nume 3/false"));
+        assertEquals(3,controlCustomer.size());
+
+        controlCustomer.clearSession();
+        assertEquals(0,controlCustomer.size());
     }
 
 }

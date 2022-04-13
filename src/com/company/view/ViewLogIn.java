@@ -1,9 +1,8 @@
 package com.company.view;
 
 import com.company.controllere.*;
-import com.company.modele.*;
+import com.company.modele.users.Customer;
 
-import javax.swing.text.View;
 import java.util.Scanner;
 
 public class ViewLogIn {

@@ -77,7 +77,7 @@ class OrderTest {
     }
 
 
-    //show
+    //toString
     @Test
     public void showInfoTest() {
         Order order = new Order(1, 2, 12.3);

@@ -2,6 +2,7 @@ package com.company.view;
 
 import com.company.controllere.*;
 import com.company.modele.*;
+import com.company.modele.users.Customer;
 
 import java.util.Scanner;
 
